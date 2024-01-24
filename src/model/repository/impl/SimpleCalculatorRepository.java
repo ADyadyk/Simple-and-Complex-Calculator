@@ -2,25 +2,29 @@ package model.repository.impl;
 
 import model.repository.Calculable;
 
-public class CalculatorRepository implements Calculable<double> {
+public class SimpleCalculatorRepository implements Calculable<Double> {
     @Override
-    public double multiply(double x, double y) {
+    public Double multiply(Double x, Double y) {
         return x * y;
     }
 
     @Override
-    public double subtraction(double x, double y) {
+    public Double subtraction(Double x, Double y) {
         return x - y;
     }
 
     @Override
-    public double sum(double x, double y) {
+    public Double sum(Double x, Double y) {
         return x + y;
     }
 
     @Override
-    public double divide(double x, double y) {
-        if(y == 0)
-        return 0;
+    public Double divide(Double x, Double y) {
+        try {
+            return x / y;
+        } catch (ArithmeticException e) {
+            System.out.println("Деление на нуль недопустимо! Автоматически обнуляем результат.");
+            return 0d;
+        }
     }
 }
