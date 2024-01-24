@@ -6,7 +6,7 @@ ___
 - model - слой отвечающий за обработку данных
 2. В слое view создан класс View.java, который использует методы из класса ViewMethods.java. ViewMethods.java реализует методы из интерфейсов Showable.java (Ввод и вывод информации в консоль), Preparabel.java (подготовка данных для вычисления) и Promptable.java (методы запроса и преобразования вводимой пользователем информации).
 3. В слое controller создан класс CalculatorController.java, который обеспечивает взаимодействие view и model. В данном слое происходит выбор логики калькулятора.
-4. В слое model представлен интерфейс Calculable.java. Его методы реализуют два класса SimpleCalculatorRepository.java и ComplexNumberCalculatorRepository.java. В данных класса описана сама логика вычислений для простых и комплексных чисел.
+4. В слое model представлен интерфейс Calculable.java. Его методы реализуют два класса SimpleCalculatorRepository.java и ComplexNumberCalculatorRepository.java. В данных классах описана сама логика вычислений для простых и комплексных чисел.
 5. В дополнительном пакете util представлены:
 - ComplexCalculator.java - класс, представляющий калькулятор комплексных чисел
 - SimpleCalculator.java - класс, представляющий обычный калькулятор

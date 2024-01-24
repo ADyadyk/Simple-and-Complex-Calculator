@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a9795f-5356-40be-beb1-134a6377b7b1" name="Changes" comment="correct">
-      <change afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="13a9795f-5356-40be-beb1-134a6377b7b1" name="Changes" comment="add README.MD">
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,12 +88,21 @@
       <option name="project" value="LOCAL" />
       <updated>1706133947495</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add README.MD">
+      <option name="closed" value="true" />
+      <created>1706135836993</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706135836993</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="correct" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct" />
+    <MESSAGE value="add README.MD" />
+    <option name="LAST_COMMIT_MESSAGE" value="add README.MD" />
   </component>
 </project>
