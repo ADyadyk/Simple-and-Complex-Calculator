@@ -1,7 +1,7 @@
 package view;
 
 import controller.CalculatorController;
-import util.Calculator;
+import util.SimpleCalculator;
 import util.ComplexCalculator;
 import util.ComplexNumber;
 import util.Operators;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class ViewMethods<T> {
+public class ViewMethods<T> implements Showable<T>, Promptable, Preparable{
     private final List<String> validOperators;
     private final CalculatorController calculatorController = new CalculatorController();
 
@@ -21,17 +21,17 @@ public class ViewMethods<T> {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public int selectCalculator(){
         System.out.println();
         System.out.println("Сделайте выбор калькулятора:");
         System.out.println("1 - простой калькулятор");
         System.out.println("2 - калькулятор для комплексных чисел");
+        System.out.println();
         return promptInt("Выберите номер калькулятора: ");
     }
-    /**
-     * Подготовка к вычислениям:
-     * Запрос комплексных чисел и типа операции вычисления
-     */
+
+    @Override
     public ComplexCalculator complexPrepare(){
         System.out.println();
         // Запрос первого числа:
@@ -39,8 +39,10 @@ public class ViewMethods<T> {
         System.out.println("Вы ввели комплексное число: " + complexNumber1);
 
         // Выводим меню оператора и выбор оператора:
+        System.out.println();
         showOperators();
         String operator = selectOperator();
+        System.out.println();
 
         // Запрос второго числа:
         ComplexNumber complexNumber2 = getComplexNumber("Введите второе комплексное число:");
@@ -48,7 +50,8 @@ public class ViewMethods<T> {
         return new ComplexCalculator(complexNumber1, operator, complexNumber2);
     }
 
-    public Calculator prepare(){
+    @Override
+    public SimpleCalculator prepare(){
         System.out.println();
         // Запрос первого числа:
         Double number1 = promptDouble("Введите первое число:");
@@ -59,12 +62,10 @@ public class ViewMethods<T> {
 
         // Запрос второго числа:
         Double number2 = promptDouble("Введите второе число:");
-        return new Calculator(number1, operator, number2);
+        return new SimpleCalculator(number1, operator, number2);
     }
 
-    /**
-     * Выбор операции вычисления
-     */
+    @Override
     public void selectAction(String operator, T x, T y){
         System.out.println();
         // Логика выбора действия:
@@ -86,53 +87,44 @@ public class ViewMethods<T> {
         }
     }
 
-    /**
-     * Запрос на выход
-     */
+    @Override
     public boolean exitRequest(){
         // Запрос на завершение работы калькулятора:
         String temp = promptString("Завершить работу калькулятора? (y/n) ");
         return !temp.equals("y");
     }
-    /**
-     * Получение String
-     */
-    private String promptString(String message){
+
+    @Override
+    public String promptString(String message){
         Scanner in = new Scanner(System.in);
         System.out.print(message);
         return in.nextLine();
     }
-    /**
-     * Получение Int
-     */
-    private Integer promptInt(String message){
+
+    @Override
+    public Integer promptInt(String message){
         return Integer.parseInt(promptString(message));
     }
-    /**
-     * Получение Double
-     */
-    private Double promptDouble(String message){
+
+    @Override
+    public Double promptDouble(String message){
         return Double.parseDouble(promptString(message));
     }
-    /**
-     * Метод запроса комплексного числа
-     */
-    private ComplexNumber getComplexNumber(String message){
+
+    @Override
+    public ComplexNumber getComplexNumber(String message){
         System.out.println(message);
         Double doublePart = promptDouble("Введите вещественую часть комплексного числа: ");
         Double complexPart = promptDouble("Введите комплексную часть числа (без i): ");
         return new ComplexNumber(doublePart,complexPart);
     }
 
-    /**
-     * Демонстрация возможных операций
-     */
+    @Override
     public void showOperators(){
         System.out.println("Выберите оператор действия из предложенных: *, +, -, /");
     }
-    /**
-     * Выбор оператора
-     */
+
+    @Override
     public String selectOperator(){
         Scanner in = new Scanner(System.in);
         String operator = in.nextLine();

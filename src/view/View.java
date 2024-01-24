@@ -1,10 +1,7 @@
 package view;
 
-import util.Calculator;
+import util.SimpleCalculator;
 import util.ComplexCalculator;
-import util.ComplexNumber;
-
-import java.util.Scanner;
 
 public class View {
     private final ViewMethods viewMethods = new ViewMethods();
@@ -13,7 +10,7 @@ public class View {
         while (flag){
             int numberOfCalculator = viewMethods.selectCalculator();
             if(numberOfCalculator == 1) {
-                Calculator calculator = viewMethods.prepare();
+                SimpleCalculator calculator = viewMethods.prepare();
 
                 viewMethods.selectAction(calculator.getOperator(),
                         calculator.getNumber1(),
